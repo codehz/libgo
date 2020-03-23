@@ -63,11 +63,11 @@ int CoDebugger::TaskCount()
     return -1;
 #endif
 }
-unsigned long CoDebugger::GetCurrentTaskID()
+uint64_t CoDebugger::GetCurrentTaskID()
 {
     return g_Scheduler.GetCurrentTaskID();
 }
-unsigned long CoDebugger::GetCurrentTaskYieldCount()
+uint64_t CoDebugger::GetCurrentTaskYieldCount()
 {
     return g_Scheduler.GetCurrentTaskYieldCount();
 }

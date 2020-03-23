@@ -372,7 +372,7 @@ bool Processer::WakeupBySelf(IncursivePtr<Task> const& tkPtr, uint64_t id, std::
     (void)ret;
     assert(ret);
     size_t sizeAfterPush = runnableQueue_.pushWithoutLock(tk, false);
-    DebugPrint(dbg_suspend, "tk(%s) Wakeup. tk->state_ = %s. is-in-proc(%d). sizeAfterPush=%lu",
+    DebugPrint(dbg_suspend, "tk(%s) Wakeup. tk->state_ = %s. is-in-proc(%d). sizeAfterPush=%zu",
             tk->DebugInfo(), GetTaskStateName(tk->state_), GetCurrentProcesser() == this, sizeAfterPush);
     if (sizeAfterPush == 1 && GetCurrentProcesser() != this) {
         lock.unlock();

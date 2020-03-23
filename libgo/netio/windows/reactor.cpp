@@ -21,7 +21,7 @@ void Reactor::Watch(SOCKET sock, short int pollEvent, Entry const& entry)
 
 	{
 		std::unique_lock<std::mutex> lock(mtx_);
-		int idx = sock / (FD_SETSIZE - 1);
+		int idx = (int)sock / (FD_SETSIZE - 1);
 		assert(idx < 2048);  // protect
 		for (int i = selectors_.size(); i <= idx; ++i) {
 			selectors_.push_back(std::make_shared<Selector>());

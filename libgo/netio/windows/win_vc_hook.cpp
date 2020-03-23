@@ -287,7 +287,7 @@ namespace co {
             if (!fds) continue;
 
             FD_ZERO(&ret_sets[idx]);
-            for (int j = 0; j < fds->fd_count; ++j) {
+            for (unsigned j = 0; j < fds->fd_count; ++j) {
                 int k = i + j;
                 short int revent = revents.get()[k];
                 if (revent & fd_event[idx]) {
